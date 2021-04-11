@@ -1,0 +1,65 @@
+#! /usr/bin/python
+import sys
+import requests
+
+if (sys.argv[1] == "prod"):
+  print(sys.argv[1])
+  url1 = ""
+  url2 = ""
+
+  payload = {}
+  headers = {
+    'Cookie': 'GCLB=CLGu2bWX2ZTdcg'
+  }
+
+  response1 = requests.request("GET", url1, headers=headers, data=payload)
+  response2 = requests.request("POST", url2, headers=headers, data=payload)
+
+  print("Cleared Cache " + response1.text.encode('utf8'))
+  print("")
+  print("Published Preprod " + response2.text.encode('utf8'))
+  exit(0)
+
+elif (sys.argv[1] == "preprod"):
+  url1 = ""
+  url2 = ""
+
+  payload = {}
+  headers = {
+    'Cookie': 'GCLB=CLGu2bWX2ZTdcg'
+  }
+
+  response1 = requests.request("GET", url1, headers=headers, data=payload)
+  response2 = requests.request("POST", url2, headers=headers, data=payload)
+
+  print("Cleared Cache " + response1.text.encode('utf8'))
+  print("")
+  print("Published Preprod " + response2.text.encode('utf8'))
+  print(sys.argv[1])
+  exit(0)
+
+elif (sys.argv[1] == "testing"):
+  url1 = ""
+  url2 = ""
+
+  payload = {}
+  headers = {
+    'Cookie': 'GCLB=CLGu2bWX2ZTdcg'
+  }
+
+  response1 = requests.request("GET", url1, headers=headers, data=payload)
+  response2 = requests.request("POST", url2, headers=headers, data=payload)
+
+  print("Cleared Cache " + response1.text.encode('utf8'))
+  print("")
+  print("Published Preprod " + response2.text.encode('utf8'))
+  print(sys.argv[1])
+  exit(0)
+
+elif (sys.argv[1] == "no"):
+  print("No need publish")
+  exit(0)
+
+else:
+  print (sys.argv[1],"Name of the Reblaze is not correct")
+  exit(0)
